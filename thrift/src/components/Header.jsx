@@ -44,7 +44,7 @@ function Header() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
+            component={RouterLink} to= "/"
             href="#Header"
             sx={{
               mr: 2,
