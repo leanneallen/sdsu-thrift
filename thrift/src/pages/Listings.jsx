@@ -20,8 +20,7 @@ function ListingPage() {
     <ThemeProvider theme={darkTheme} >
       <CssBaseline/>
         <Header/>
-        <ListingLayout sx={{margin:"10"}}/>
-        
+        <ListingLayout sx={{padding:"10"}}/>
       </ThemeProvider>
     </>
   )
