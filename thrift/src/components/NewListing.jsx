@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -15,7 +15,6 @@ import { styled, useTheme } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import InputAdornment from '@mui/material/InputAdornment';
-
 
 const drawerWidth = 400;
 
@@ -68,8 +67,12 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
+
 export default function NewListing() {
   const [open, setOpen] = React.useState(false);
+  const [imgListing, setImgListing] = React.useState(null);
+  const [imgUrl, setImgUrl] = React.useState(null);
+
   const theme = useTheme();
 
   const handleDrawerOpen = () => {
@@ -83,6 +86,13 @@ export default function NewListing() {
   const handleDrawer = () => {
     setOpen(!open);
   }
+
+  useEffect(() => {
+    if(imgListing){
+      setImgUrl(URL.createObjectURL(imgListing));
+    }
+  }, [imgListing]);
+  
 
   return (
     <Box sx={{ display: 'flex' }} height={70}>
@@ -124,25 +134,8 @@ export default function NewListing() {
             <ChevronRightIcon />
           </IconButton>
           <Grid container spacing={1}>
-            <Grid item xs={12}>
-              <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-                sx={{width:200,
-                    display:'flex',
-                    padding:'10',
-                    margin:"auto"}}
-              >
-                Upload image
-                <VisuallyHiddenInput type="file" />
-              </Button>
-            </Grid>
-          </Grid>
+
         {/* New listing fields */}    
-        <Grid container spacing={1}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
@@ -151,9 +144,33 @@ export default function NewListing() {
                 variant="outlined"
                 sx={{width:200,
                     display:'flex',
-                    padding:'10',
+                    padding:'20',
                     margin:"auto"}}
               />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                component="label"
+                role={undefined}
+                variant="contained"
+                tabIndex={-1}
+                /* startIcon={<CloudUploadIcon />} */
+                sx={{width:200,
+                    display:'flex',
+                    padding:'10',
+                    margin:"auto",
+                    marginBottom: 2}}
+              >
+                Upload image
+                <VisuallyHiddenInput 
+                  type="file"
+                  onChange = {x => setImgListing(x.target.files[0])} />
+              </Button>
+              {imgUrl && imgListing && (
+                <Box>
+                  <img src={imgUrl} alt={imgListing.name} style={{width:200, display:'flex', padding:'10', margin:"auto"}}/>
+                </Box>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -174,15 +191,27 @@ export default function NewListing() {
                 id="outlined-basic"
                 label="Price"
                 variant="outlined"
-                /* InputProps={{
-                  startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-                }} */
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }} 
                 sx={{width:200,
                     display:'flex',
                     padding:'10',
                     margin:"auto"}}
               />
             </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{width:200,
+                    display:'flex',
+                    padding:'10',
+                    margin:"auto"}}
+              >
+                Submit
+              </Button>
+              </Grid>
           </Grid>
         </Drawer>
       </Box>
