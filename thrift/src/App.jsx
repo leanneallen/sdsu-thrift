@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Routes, Route } from "react-router-dom";
-import HomePage from './pages/Home.jsx';
+import { Routes, Route } from "react-router-dom"
+import HomePage from './pages/Home.jsx'
 import SignUpPage from './pages/SignUp.jsx'
 import LoginPage from './pages/Login.jsx'
 import AboutPage from './pages/About.jsx'

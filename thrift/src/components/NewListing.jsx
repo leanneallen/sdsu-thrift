@@ -14,6 +14,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { styled, useTheme } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import InputAdornment from '@mui/material/InputAdornment';
 
 
 const drawerWidth = 400;
@@ -140,7 +141,49 @@ export default function NewListing() {
               </Button>
             </Grid>
           </Grid>
-        {/* New listing fields */}            
+        {/* New listing fields */}    
+        <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Title"
+                variant="outlined"
+                sx={{width:200,
+                    display:'flex',
+                    padding:'10',
+                    margin:"auto"}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Description"
+                variant="outlined"
+                multiline
+                sx={{width:200,
+                    display:'flex',
+                    padding:'10',
+                    margin:"auto"}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Price"
+                variant="outlined"
+                /* InputProps={{
+                  startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+                }} */
+                sx={{width:200,
+                    display:'flex',
+                    padding:'10',
+                    margin:"auto"}}
+              />
+            </Grid>
+          </Grid>
         </Drawer>
       </Box>
     </Box>
