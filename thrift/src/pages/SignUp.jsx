@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../App.css';
-import SignUp from "../components/SignUp"
+import SignUp from "../components/Signup"
 import Header from "../components/Header"
 
 function SignUpPage() {
