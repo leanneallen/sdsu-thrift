@@ -23,10 +23,13 @@ db.sqlite3-journal
 __pycache__/
 
 my_venv/
-/venv/
-/env/
-/output/
-/cache/
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # Editor directories and files
 .vscode/*
