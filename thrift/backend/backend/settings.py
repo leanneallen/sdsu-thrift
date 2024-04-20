@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders', # ADDED THIS
     'rest_framework', # ADDED THIS
-    'rest_framework_simplejwt.token_blacklist' # ADDED THIS
+    'rest_framework_simplejwt', # ADDED THIS
+    'authentification', # ADDED THIS
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True # ADDED THIS
