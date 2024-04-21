@@ -15,31 +15,23 @@ import './App.css'
 import ApparelPage from './pages/categories/Apparel.jsx'
 
 /*ROUTING PATH TEMPLATE: <Route path="" element={</>} /> */
+
 function App() {
   return (
-    <div>
-      <ApparelPage />
-    </div>
+    <>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/Listings" element={<ListingPage/>} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/About" element={<AboutPage />} />
+          <Route path="/Support" element={<SupportPage/>} />  
+          <Route path="/Apparel" element={<ApparelPage />} />
+          <Route path="*" element={<NoPage />} /> 
+        </Routes>
+        </>
   );
 }
-
-// FOR ROUTING
-// function App() {
-//   return (
-//     <>
-//         /* <Routes>
-//           <Route path="/" element={<HomePage />} />
-//           <Route path="/Home" element={<HomePage />} />
-//           <Route path="/Listings" element={<ListingPage/>} />
-//           <Route path="/SignUp" element={<SignUpPage />} />
-//           <Route path="/Login" element={<LoginPage />} />
-//           <Route path="/About" element={<AboutPage />} />
-//           <Route path="/Support" element={<SupportPage/>} />  
-//           <Route path="/Apparel" element={<ApparelPage />} />
-//           <Route path="*" element={<NoPage />} /> 
-//         </Routes> */}
-//         </>
-//   );
-// }
 
 export default App
