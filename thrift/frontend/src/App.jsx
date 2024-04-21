@@ -12,6 +12,7 @@ import ListingPage from './pages/Listings.jsx'
 import NoPage from './pages/NoPage.jsx'
 import IndivListingPage from './pages/IndivListingPage.jsx'
 import ProfilePage from './pages/Profile.jsx'
+import SettingsPage from './pages/Settings.jsx'
 
 import './App.css'
 import ApparelPage from './pages/categories/Apparel.jsx'
@@ -39,6 +40,8 @@ function App() {
           <Route path="/Support" element={<SupportPage/>} />  
           <Route path="/Apparel" element={<ApparelPage />} />
           <Route path="/IndivListingPage" element={<IndivListingPage />} />
+          <Route path="/Profile" element={<ProfilePage />} />
+          <Route path="/Settings" element={<SettingsPage />} />
           <Route path="*" element={<NoPage />} /> 
         </Routes> 
         </>
