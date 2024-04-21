@@ -11,6 +11,7 @@ import SupportPage from './pages/Support.jsx'
 import ListingPage from './pages/Listings.jsx'
 import NoPage from './pages/NoPage.jsx'
 import IndivListingPage from './pages/IndivListingPage.jsx'
+import ProfilePage from './pages/Profile.jsx'
 
 import './App.css'
 import ApparelPage from './pages/categories/Apparel.jsx'
@@ -19,7 +20,7 @@ import ApparelPage from './pages/categories/Apparel.jsx'
 function App() {
   return (
     <div>
-      <IndivListingPage />
+      <Profile />
     </div>
   );
 }*/
@@ -38,6 +39,7 @@ function App() {
           <Route path="/Support" element={<SupportPage/>} />  
           <Route path="/Apparel" element={<ApparelPage />} />
           <Route path="/IndivListingPage" element={<IndivListingPage />} />
+          <Route path="/Profile" element={<ProfilePage />} />
           <Route path="*" element={<NoPage />} /> 
         </Routes> 
         </>
