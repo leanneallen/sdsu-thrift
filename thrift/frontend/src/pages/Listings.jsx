@@ -8,20 +8,11 @@ import { createTheme } from '@mui/material'
 
 function ListingPage() {
 
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'light',
-    },
-  });
-
   
   return (
     <>
-    <ThemeProvider theme={darkTheme} >
-      <CssBaseline/>
         <Header/>
         <ListingLayout sx={{padding:"10"}}/>
-      </ThemeProvider>
     </>
   )
 }
