@@ -10,12 +10,14 @@ import AboutPage from './pages/About.jsx'
 import SupportPage from './pages/Support.jsx' 
 import ListingPage from './pages/Listings.jsx'
 import NoPage from './pages/NoPage.jsx'
+import IndivListingPage from './pages/IndivListingPage.jsx'
 
 import './App.css'
 import ApparelPage from './pages/categories/Apparel.jsx'
 
 /*ROUTING PATH TEMPLATE: <Route path="" element={</>} /> */
 
+// FOR ROUTING
 function App() {
   return (
     <>
@@ -29,7 +31,7 @@ function App() {
           <Route path="/Support" element={<SupportPage/>} />  
           <Route path="/Apparel" element={<ApparelPage />} />
           <Route path="*" element={<NoPage />} /> 
-        </Routes>
+        </Routes> 
         </>
   );
 }
