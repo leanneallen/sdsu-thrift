@@ -20,7 +20,7 @@ import ApparelPage from './pages/categories/Apparel.jsx'
 function App() {
   return (
     <div>
-      <Profile />
+      <IndivListingPage />
     </div>
   );
 }*/
@@ -29,7 +29,7 @@ function App() {
 function App() {
   return (
     <>
-        /* <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Home" element={<HomePage />} />
           <Route path="/Listings" element={<ListingPage/>} />
@@ -39,7 +39,6 @@ function App() {
           <Route path="/Support" element={<SupportPage/>} />  
           <Route path="/Apparel" element={<ApparelPage />} />
           <Route path="/IndivListingPage" element={<IndivListingPage />} />
-          <Route path="/Profile" element={<ProfilePage />} />
           <Route path="*" element={<NoPage />} /> 
         </Routes> 
         </>
