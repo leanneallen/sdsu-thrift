@@ -6,10 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { CardActionArea } from '@mui/material';
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Listing({title, img, desc}) {
   return (
     <Card position = "flex" sx={{ maxWidth: 300 }}style ={{ marginTop: '64px'}}>
+      <RouterLink to="/IndivListingPage" style={{ textDecoration: 'none', color: 'inherit', width: '100%', height: '100%' }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -32,6 +34,7 @@ export default function Listing({title, img, desc}) {
           </Box>
         </CardContent>
       </CardActionArea>
+      </RouterLink>
     </Card>
   );
 }

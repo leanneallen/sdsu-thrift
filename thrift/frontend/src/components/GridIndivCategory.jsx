@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Listing from './UserListingCard'
 import Grid from '@mui/material/Grid';
+import { Link as RouterLink } from "react-router-dom";
 
 const listingArr = [
     {
@@ -43,7 +44,9 @@ return(
       {listingArr.map((listing, index) => 
       (<>
         <Grid item xs={4} sm={3} md={3} lg={3} key={index}>
+        <RouterLink to="/IndivListingPage" style={{ textDecoration: 'none', color: 'inherit', width: '100%', height: '100%' }}>
             <Listing key={index} style ={{marginBottom: '64px', width: "200px", height: "345px"}} img = {listing.img} desc = {listing.price} title = {listing.title} />        
+            </RouterLink>
         </Grid>
        </>
       ))}
