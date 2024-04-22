@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
+import { Box } from '@mui/material';
+import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
 
 const listingArr = [
   "./src/assets/frog1.jpg",
@@ -9,7 +12,7 @@ const listingArr = [
   "./src/assets/frog6.jpg"
 ];
 
-const AdvancedCarousel = () => {
+const ResponsiveCarousel = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNextSlide = () => {
@@ -21,24 +24,101 @@ const AdvancedCarousel = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <div style={{ flex: '1', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center' }}>
-          <button onClick={goToPrevSlide}>Prev</button>
-          <div style={{ width: '500px', height: '500px', position: 'relative', overflow: 'hidden' }}>
-            <img src={listingArr[currentIndex]} alt={`Image ${currentIndex + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-          <button onClick={goToNextSlide}>Next</button>
-        </div>
-        <div>
-          {currentIndex + 1} / {listingArr.length}
-        </div>
-      </div>
-      <div style={{ flex: '1', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        {/* Additional content goes here */}
-      </div>
-    </div>
+    <Box ref={ref} sx={{
+      position: 'relative', // Parent box is relative
+      width: '100%', // full width of the container
+      height: { xs: '50vh', sm: '60vh', md: '70vh' }, // responsive height based on breakpoints
+      
+    }}>
+      {/* Blurry background container */}
+      <Box className="blurry-background-container" sx={{
+        backgroundImage: `url(${listingArr[currentIndex]})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        filter: 'blur(5px)',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+      }}>
+      </Box>
+      {/* Image buttons container */}
+      <Box className='image-buttons-container' sx={{ position: 'absolute',alignItems: 'center',
+      justifyContent: 'center',
+      display: 'flex', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <ArrowCircleLeftRoundedIcon onClick={goToPrevSlide} sx={{ position: 'absolute', left: 16, zIndex: 2, cursor: 'pointer' }} />
+        <Box component='img' src={listingArr[currentIndex]} alt={`Image ${currentIndex + 1}`} sx={{
+          maxWidth: '100%',
+          maxHeight: '100%',
+          width: 'auto',
+          height: 'auto',
+          objectFit: 'contain',
+          zIndex: 1
+        }} />
+        <ArrowCircleRightRoundedIcon onClick={goToNextSlide} sx={{ position: 'absolute', right: 16, zIndex: 2, cursor: 'pointer' }} />
+      </Box>
+    </Box>
   );
-};
+});
 
-export default AdvancedCarousel;
+export default ResponsiveCarousel;
+
+
+
+
+// import React, { useState, forwardRef } from 'react';
+// import { Box } from '@mui/material';
+// import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+// import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
+
+// const listingArr = [
+//   "./src/assets/frog1.jpg",
+//   "./src/assets/frog2.png",
+//   "./src/assets/frog3.jpg",
+//   "./src/assets/frog4.jpg",
+//   "./src/assets/frog5.jpg",
+//   "./src/assets/frog6.jpg"
+// ];
+
+// const ResponsiveCarousel = forwardRef((props, ref) => {
+//   const [currentIndex, setCurrentIndex] = useState(0);
+
+//   const goToNextSlide = () => {
+//     setCurrentIndex(currentIndex === listingArr.length - 1 ? 0 : currentIndex + 1);
+//   };
+
+//   const goToPrevSlide = () => {
+//     setCurrentIndex(currentIndex === 0 ? listingArr.length - 1 : currentIndex - 1);
+//   };
+
+//   return (
+//     <Box ref={ref} className="carousel-container" sx={{
+//       backgroundImage: `url(${listingArr[currentIndex]})`, // initial image
+//       backgroundRepeat: 'no-repeat',
+//       backgroundPosition: 'center',
+//       backgroundSize: 'cover',
+//       filter: 'blur(5px)',
+//       zIndex: 0,
+//       width: '100%', // full width of the container
+//       height: { xs: '50vh', sm: '60vh', md: '70vh' }, // responsive height based on breakpoints
+//       display: 'flex',
+//       alignItems: 'center',
+//       justifyContent: 'center',
+//       position: 'relative'
+//     }}>
+//       <ArrowCircleLeftRoundedIcon onClick={goToPrevSlide} sx={{ position: 'absolute', left: 0, zIndex: 2, cursor: 'pointer' }} />
+//       <Box component='img' src={listingArr[currentIndex]} alt={`Image ${currentIndex + 1}`} sx={{
+//         maxWidth: '100%', // ensures image does not exceed the container's width
+//         maxHeight: '100%', // ensures image does not exceed the container's height
+//         width: 'auto', // allows the image to scale responsively
+//         height: 'auto', // allows the image to scale responsively
+//         objectFit: 'contain', // maintains aspect ratio without cropping
+//         zIndex: 1
+//       }} />
+//       <ArrowCircleRightRoundedIcon onClick={goToNextSlide} sx={{ position: 'absolute', right: 0, zIndex: 2, cursor: 'pointer' }} />
+    
+//     </Box>
+//   );
+// });
+
+// export default ResponsiveCarousel;
