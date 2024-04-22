@@ -1,51 +1,93 @@
 import * as React from 'react';
-import Header from '../components/Header'
-import './Support.css';
+import { Typography, Box, TextField, Button } from '@mui/material';
+import Header from '../components/Header';
 
 function SupportPage() {
-
   return (
-    <div className="support-page">
-      <Header/>
-      <h2 className="support-title">Support</h2>
-      <div className="support-section">
-        <div className="search-box">
-          <input type="text" placeholder="Search help articles" />
-        </div>
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h3>Question 1?</h3>
-            <p>Answer to question 1.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Question 2?</h3>
-            <p>Answer to question 2.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Question 3?</h3>
-            <p>Answer to question 3.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Question 4?</h3>
-            <p>Answer to question 4.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Question 5?</h3>
-            <p>Answer to question 5.</p>
-          </div>
-        </div>
-        <div className="contact-box">
-          <h2>Contact Us</h2>
-          <div className="contact-inputs">
-            <input type="text" placeholder="Your Phone Number" />
-            <input type="email" placeholder="Your Email Address" />
-            <textarea placeholder="Your Concerns"></textarea>
-          </div>
-          <button>Send Message</button>
-        </div>
-      </div>
-    </div>
+    <Box
+      maxWidth="800px"
+      margin="0 auto"
+      padding="2rem"
+      textAlign="center"
+    >
+      <Header />
+      <Box
+        marginTop="1rem" // Added margin top for space
+        sx={{
+          backgroundColor: '#A6192E',
+          borderRadius: '10px',
+          padding: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        <Typography variant="h4" sx={{ color: '#fff', mb: 2 }}>
+          Support
+        </Typography>
+        <TextField
+          label="Search help articles"
+          variant="outlined"
+          fullWidth
+          sx={{ backgroundColor: '#fff', borderRadius: '5px' }}
+        />
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: '#333',
+          borderRadius: '20px',
+          padding: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        <Typography variant="h4" sx={{ color: '#fff', mb: 2 }}>
+          Frequently Asked Questions
+        </Typography>
+        <Box className="faq-section">
+          <Box className="faq-item">
+            <Typography variant="h5" sx={{ color: '#fff' }}>Question 1?</Typography>
+            <Typography variant="body1" sx={{ color: '#fff' }}>Answer to question 1.</Typography>
+          </Box>
+          <Box className="faq-item">
+            <Typography variant="h5" sx={{ color: '#fff' }}>Question 2?</Typography>
+            <Typography variant="body1" sx={{ color: '#fff' }}>Answer to question 2.</Typography>
+          </Box>
+          <Box className="faq-item">
+            <Typography variant="h5" sx={{ color: '#fff' }}>Question 3?</Typography>
+            <Typography variant="body1" sx={{ color: '#fff' }}>Answer to question 3.</Typography>
+          </Box>
+          <Box className="faq-item">
+            <Typography variant="h5" sx={{ color: '#fff' }}>Question 4?</Typography>
+            <Typography variant="body1" sx={{ color: '#fff' }}>Answer to question 4.</Typography>
+          </Box>
+          <Box className="faq-item">
+            <Typography variant="h5" sx={{ color: '#fff' }}>Question 5?</Typography>
+            <Typography variant="body1" sx={{ color: '#fff' }}>Answer to question 5.</Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: '#ccc',
+          borderRadius: '20px',
+          padding: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        <Typography variant="h4" sx={{ mb: 2 }}>Contact Us</Typography>
+        <Box className="contact-inputs">
+          <TextField label="Your Phone Number" variant="outlined" fullWidth />
+          <TextField label="Your Email Address" variant="outlined" fullWidth sx={{ marginTop: '1rem' }} />
+          <TextField
+            label="Your Concerns"
+            variant="outlined"
+            multiline
+            rows={4}
+            fullWidth
+            sx={{ marginTop: '1rem' }}
+          />
+        </Box>
+        <Button variant="contained" sx={{ bgcolor: '#A6192E' }}>Send Message</Button> {/* Change button color to red */}
+      </Box>
+    </Box>
   );
 }
 
