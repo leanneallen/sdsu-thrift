@@ -16,7 +16,8 @@ dist-ssr
 db.sqlite3
 db.sqlite3-journal
 .DS_Store
-.env
+/env
+*.env
 **/settings/local.py
 /staticfiles/*
 /mediafiles/*
