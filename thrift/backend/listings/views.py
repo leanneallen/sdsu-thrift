@@ -9,6 +9,12 @@ from rest_framework.response import Response
 @api_view(['GET'])
 class getListings(generic.ListView):
     model=Listings
-    def get_queryset(self) -> QuerySet[Any]:
-        return Listings.objects.all()
+
+def index(request):
+    num_listings = Listings.objects.all().count()
+    return render(
+        request,
+        'index.html',
+        context={'num_listings':num_listings},
+    )
 
