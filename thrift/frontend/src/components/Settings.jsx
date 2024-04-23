@@ -1,23 +1,15 @@
 import * as React from 'react';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import { useTheme } from '../components/ThemeContext';
+import { Container, FormControlLabel, FormGroup, Switch, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 export default function Settings() {
-  const [darkMode, setDarkMode] = React.useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();  // Destructure the needed context values
   const [notifications, setNotifications] = React.useState(false);
   const [language, setLanguage] = React.useState('');
-
-  const handleDarkModeChange = (event) => {
-    setDarkMode(event.target.checked);
-  };
-
   const handleNotificationsChange = (event) => {
     setNotifications(event.target.checked);
   };
@@ -33,7 +25,7 @@ export default function Settings() {
       </Typography>
       <FormGroup>
         <FormControlLabel
-          control={<Switch checked={darkMode} onChange={handleDarkModeChange} />}
+          control={<Switch checked={isDarkMode} onChange={toggleTheme} />}
           label="Dark Mode"
         />
         <FormControlLabel
