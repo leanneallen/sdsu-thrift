@@ -27,7 +27,7 @@ urlpatterns = [
      path('',RedirectView.as_view(url='listings/', permanent=True)),
      path('admin/', admin.site.urls),
      path('listings/', include('listings.urls')),
-     path('authentification/', include('authentification.urls'))
+     path('authentification/', include('authentification.urls')),
      path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
