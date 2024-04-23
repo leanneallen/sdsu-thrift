@@ -13,6 +13,7 @@ import ProfilePage from './pages/Profile.jsx';
 import SettingsPage from './pages/Settings.jsx';
 import ApparelPage from './pages/categories/Apparel.jsx';
 
+// Corrected: Removed the extra export default statement at the end of the file
 export default function App() {
   return (
     <>
@@ -41,7 +42,3 @@ export default function App() {
     </>
   );
 }
-
-
-export default App
-

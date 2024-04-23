@@ -2,17 +2,17 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'; // This contains Clerk-dependent components
-import { ClerkProvider } from '@clerk/clerk-react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ClerkProvider, useClerk } from '@clerk/clerk-react';
+import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+// Assuming you have this environment variable set correctly
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key")
+  throw new Error("Missing Publishable Key");
 }
-
 
 console.log("Publishable Key: ", PUBLISHABLE_KEY);
 
@@ -24,28 +24,16 @@ function Main() {
     },
   }), [prefersDarkMode]);
 
-  
   return (
     <React.StrictMode>
-      <BrowserRouter>
-        <ClerkProvider frontendApi={PUBLISHABLE_KEY}> 
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
+      <ClerkProvider frontendApi={PUBLISHABLE_KEY}>
+        <MUIThemeProvider theme={theme}>
+          <CssBaseline />
+          <BrowserRouter>
             <App />
-          </ThemeProvider>
-        </ClerkProvider>
-
-import { ThemeProvider } from './components/ThemeContext.jsx';
-
-
-function Main() {
-  return (
-    <React.StrictMode>
-      <BrowserRouter>
-        <ThemeProvider>  // Use your custom ThemeProvider
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
+          </BrowserRouter>
+        </MUIThemeProvider>
+      </ClerkProvider>
     </React.StrictMode>
   );
 }
