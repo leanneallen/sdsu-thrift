@@ -9,10 +9,17 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 @api_view(['GET'])
+
+class getListings(generic.ListView):
+    model=Listings
+    def get_queryset(self) -> QuerySet[Any]:
+        return Listings.objects.all()
+
 def getListings(request):
     listings = Listings.objects.all()
     serializer = ListingsSerializer(listings, many=True)
     return Response(serializer.data)
+
 
 """ def getListings(request):
     category = None
