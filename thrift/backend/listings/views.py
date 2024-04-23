@@ -8,17 +8,22 @@ from .serializers import ListingsSerializer, CategorySerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+@api_view(['GET'])
+def getListings(request):
+    listings = Listings.objects.all()
+    serializer = ListingsSerializer(listings, many=True)
+    return Response(serializer.data)
 
-class Listings(generic.ListView):
-    queryset=Listings.objects.all()
-    serializer_class = ListingsSerializer
-    model=Listings
-    def getListings(self, *args):
-        queryset = self.get_queryset()   
-        if(args):
-            return queryset.filter(category__name=args[0])
-        return queryset
-
+""" def getListings(request):
+    category = None
+    serializer = ListingsSerializer(listings, many=True)
+    try:
+        listings = Listings.objects.all()
+        if(category):
+            listings = listings.filter(category)
+        
+    except Exception as e:
+        return Response({'error': str(e)}, status=500) """
 class Category(generic.ListView):
     model=Category
     serializer_class = CategorySerializer
