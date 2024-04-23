@@ -4,8 +4,19 @@ import CategoryGrid from '../../components/GridCategory';
 import ListingsInCategory from '../../components/GridIndivCategory';
 import Header from '../../components/Header';
 import MultipleSelectPlaceholder from '../../components/FiltersCategory';
+import axios from 'axios';
 
 function ApparelPage() {
+  var listingArr = []
+  useEffect(() => {
+    axios.get('http://localhost:3001/listings')
+    .then((response) => {
+      
+    })
+    .catch((error) => {
+      console.error('Error fetching data: ', error);
+    });
+  }, []);
   return (
     <div>
         <Header />

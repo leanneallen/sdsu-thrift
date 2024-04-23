@@ -3,19 +3,23 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views import generic
 from .models import Listings
+from .models import Category
+from .serializers import ListingsSerializer, CategorySerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
-@api_view(['GET'])
-class getListings(generic.ListView):
+class Listings(generic.ListView):
+    queryset=Listings.objects.all()
+    serializer_class = ListingsSerializer
     model=Listings
+    def getListings(self, *args):
+        queryset = self.get_queryset()   
+        if(args):
+            return queryset.filter(category__name=args[0])
+        return queryset
 
-def index(request):
-    num_listings = Listings.objects.all().count()
-    return render(
-        request,
-        'index.html',
-        context={'num_listings':num_listings},
-    )
-
+class Category(generic.ListView):
+    model=Category
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
