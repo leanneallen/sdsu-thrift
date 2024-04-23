@@ -34,6 +34,17 @@ function Main() {
             <App />
           </ThemeProvider>
         </ClerkProvider>
+
+import { ThemeProvider } from './components/ThemeContext.jsx';
+
+
+function Main() {
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <ThemeProvider>  // Use your custom ThemeProvider
+          <App />
+        </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>
   );

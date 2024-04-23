@@ -16,16 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from authentification import views as auth_views
-from listings import views as listing_views
-from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
+from authentification import views
+from listings import views
+from rest_framework_simplejwt.views import ( TokenObtainPairView, TokenRefreshView)
 
 urlpatterns = [
-     path('', include('listings.urls')),
+     path('',RedirectView.as_view(url='listings/', permanent=True)),
      path('admin/', admin.site.urls),
-     path('users/', auth_views.users, name='users'),  # Specify which views to use
      path('listings/', include('listings.urls')),
      path('authentification/', include('authentification.urls')),
      path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-]
+
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

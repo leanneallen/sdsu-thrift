@@ -39,7 +39,7 @@ function Header() {
     <>
     <AppBar position="fixed" style={{ top: 0, left: 0, right: 0 }}sx={{ backgroundColor: '#A6192E' }}>
       <Container maxWidth="false">
-        <Toolbar disableGutters = "false">
+        <Toolbar>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, color: 'white', mr: 1 }} /> */}
           <Typography
             variant="h6"

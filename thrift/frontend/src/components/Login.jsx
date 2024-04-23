@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import { Link as RouterLink} from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const defaultTheme = createTheme();
 
 export default function Login() {
   const handleSubmit = (event) => {
@@ -24,7 +23,6 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
         <Paper sx={{padding: 5, mt: 5}}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -93,6 +91,5 @@ export default function Login() {
         </Box>
       </Container>
       </Paper>
-    </ThemeProvider>
   );
 }

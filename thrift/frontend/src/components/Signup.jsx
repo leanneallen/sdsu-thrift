@@ -11,7 +11,6 @@ import Container from '@mui/material/Container';
 import { Link as RouterLink} from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const defaultTheme = createTheme();
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -32,7 +31,6 @@ export default function SignUp() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -168,6 +166,5 @@ export default function SignUp() {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
   );
 }
