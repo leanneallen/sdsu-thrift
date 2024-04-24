@@ -6,7 +6,7 @@ export default function IndexPage() {
     <div>
       <h1>This is the index page</h1>
       <div>
-        <ul>s
+        <ul>
           <li><Link to="/sign-up">Sign Up</Link></li>
           <li><Link to="/sign-in">Sign In</Link></li>
           <li><Link to="/contact">Contact</Link></li>
