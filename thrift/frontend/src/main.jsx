@@ -27,7 +27,7 @@ function Main() {
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <MUIThemeProvider theme={theme}>
           <CssBaseline />
-          <BrowserRouter>
+          <BrowserRouter>s
             <App />
           </BrowserRouter>
         </MUIThemeProvider>
