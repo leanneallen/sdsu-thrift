@@ -16,14 +16,6 @@ import ApparelPage from './pages/categories/Apparel.jsx';
 export default function App() {
   return (
     <>
-      <header>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </header>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Home" element={<HomePage />} />
@@ -41,7 +33,3 @@ export default function App() {
     </>
   );
 }
-
-
-export default App
-
