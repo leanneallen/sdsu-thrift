@@ -9,10 +9,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 @api_view(['GET'])
-def getListings(request):
+def getListings(request, category = None):
+    print(category)
+    category = request.GET.get('category')
     listings = Listings.objects.all()
+    if(category):
+        listings = listings.filter(category=category)
     serializer = ListingsSerializer(listings, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data )
 
 """ def getListings(request):
     category = None
@@ -24,7 +28,8 @@ def getListings(request):
         
     except Exception as e:
         return Response({'error': str(e)}, status=500) """
-class Category(generic.ListView):
-    model=Category
-    serializer_class = CategorySerializer
-    queryset = Category.objects.all()
+@api_view(['GET'])
+def getCategory(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories, many=True)
+    return Response(serializer.data)

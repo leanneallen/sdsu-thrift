@@ -10,5 +10,5 @@ router.register(r'category', views.Category)
  """
 urlpatterns = [
      #path('', include(router.urls)),
-     path('api/', views.getListings, name="listings"),
+     path('listings/<str:category>/', views.getListings, name="listings"),
      ]
