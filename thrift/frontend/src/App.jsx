@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 import HomePage from './pages/Home.jsx';
 import SignUpPage from './pages/SignUp.jsx';
 import LoginPage from './pages/Login.jsx';
@@ -25,7 +24,7 @@ export default function App() {
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Support" element={<SupportPage />} />
         <Route path="/Apparel" element={<ApparelPage />} />
-        <Route path="/IndivListingPage/:id" element={<IndivListingPage />} />
+        <Route path="/IndivListingPage" element={<IndivListingPage />} />
         <Route path="/Profile" element={<ProfilePage />} />
         <Route path="/Settings" element={<SettingsPage />} />
         <Route path="*" element={<NoPage />} />
