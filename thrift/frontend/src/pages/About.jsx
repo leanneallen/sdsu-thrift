@@ -1,7 +1,10 @@
 import React from 'react';
-import { Typography, Button, Box, List, ListItem, ListItemText, Paper } from '@mui/material';
+import { Typography, Box, List, ListItem, ListItemText, ListItemAvatar, Paper, Card, CardContent, Avatar } from '@mui/material';
 import Header from '../components/Header';
 import thriftStorePic from '../assets/thriftstorepic.jpg';
+import NatureIcon from '@mui/icons-material/Nature';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import GhostIcon from '@mui/icons-material/Visibility'; // Simulating a ghost icon
 
 function AboutPage() {
   return (
@@ -13,53 +16,66 @@ function AboutPage() {
         padding="2rem"
         textAlign="center"
       >
-       <Paper elevation={3} sx={{ padding: '1rem' }}>
-          <div className="about-page">
+        <Card elevation={3} sx={{ marginBottom: '2rem' }}>
+          <CardContent>
             <Typography variant="h2" sx={{ mb: 2 }}>About</Typography>
-            <Paper elevation={0} sx={{ padding: '1rem', marginBottom: '1rem' }}>
-              <Typography variant="body1">
-                This is a little about what makes us so special.
-              </Typography>
-            </Paper>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              mb={2}
-            >
-              <Box sx={{ width: '50%', paddingRight: '1rem' }}>
-              <Paper elevation={0} sx={{ padding: '1rem', marginBottom: '1rem' }}>
-                  <Typography variant="body1">
-                    SDSUthrift is a thrift store dedicated to serving the needs of college students at San Diego State University.
-                    Our mission is to provide affordable and sustainable clothing options to students while promoting eco-friendly practices.
-                    We strive to create a community where students can buy and sell pre-loved items, reducing waste and supporting sustainability efforts.
-                  </Typography>
-                  </Paper>
-                <Typography variant="body1" sx={{ mt: 2 }}>Sound interesting?</Typography>
-                <Button variant="contained" sx={{ bgcolor: '#A6192E' }}>Get Started</Button> {/* Changed color to #A6192E */}
-              </Box>
-              <Box sx={{ width: '50%', paddingLeft: '1rem' }}>
-                <img src={thriftStorePic} alt="Thrift Store" style={{ maxWidth: '100%', height: 'auto' }} />
-              </Box>
+            <Typography variant="body1">
+              This is a little about what makes us so special.
+            </Typography>
+          </CardContent>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            padding="1rem"
+            sx={{ flexDirection: { xs: 'column', md: 'row' } }}
+          >
+            <Card sx={{ width: { xs: '100%', md: '50%' }, margin: { md: '0 1rem 0 0' } }}>
+              <CardContent>
+                <Typography variant="body1">
+                  SDSUthrift is a thrift store dedicated to serving the needs of college students at San Diego State University.
+                  Our mission is to provide affordable and sustainable clothing options to students while promoting eco-friendly practices.
+                  We strive to create a community where students can buy and sell pre-loved items, reducing waste and supporting sustainability efforts.
+                </Typography>
+                <Typography variant="h6" sx={{ mt: 2, fontStyle: 'italic' }}>Get started today!</Typography>
+              </CardContent>
+            </Card>
+            <Box sx={{ width: { xs: '100%', md: '50%' }, padding: { md: '0 0 0 1rem' }, mt: { xs: 2, md: 0 } }}>
+              <img src={thriftStorePic} alt="Thrift Store" style={{ maxWidth: '100%', height: 'auto', borderRadius: '15px' }} />
             </Box>
-            <Paper elevation={3} sx={{ padding: '1rem', marginBottom: '1rem' }}>
-              <div className="quick-facts-section">
-                <Typography variant="h3">Quick Facts</Typography>
-                <List>
-                  <ListItem>
-                    <ListItemText primary="We donate 50% of our profits to save endangered pandas." />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText primary="We offer a lifetime warranty on all our products." />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText primary="Our store is haunted by friendly ghosts." />
-                  </ListItem>
-                </List>
-              </div>
-            </Paper>
-          </div>
-        </Paper>
+          </Box>
+          <Card elevation={3} sx={{ margin: '1rem' }}>
+            <CardContent>
+              <Typography variant="h3">Quick Facts</Typography>
+              <List>
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <AttachMoneyIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="We donate 50% of our profits to save endangered pandas." />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <NatureIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="We offer a lifetime warranty on all our products." />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <GhostIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Our store is haunted by friendly ghosts." />
+                </ListItem>
+              </List>
+            </CardContent>
+          </Card>
+        </Card>
       </Box>
     </>
   );
