@@ -1,18 +1,14 @@
+// main.jsx
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App.jsx'; // This contains Clerk-dependent components
-import { ClerkProvider, useClerk } from '@clerk/clerk-react';
+import App from './App.jsx';
+import { ClerkProvider } from '@clerk/clerk-react';
 import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// Assuming you have this environment variable set correctly
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key");
-}
+const PUBLISHABLE_KEY = "pk_test_ZXhwZXJ0LWdvb3NlLTI4LmNsZXJrLmFjY291bnRzLmRldiQ"; // Use your actual publishable key here
 
 console.log("Publishable Key: ", PUBLISHABLE_KEY);
 
@@ -38,6 +34,5 @@ function Main() {
   );
 }
 
-// Create the root element and render the Main component
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Main />);
