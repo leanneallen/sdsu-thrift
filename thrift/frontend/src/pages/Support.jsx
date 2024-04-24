@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Typography, Box, TextField, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../components/Header';
-import Footer from './Footer';
+import Footer from './Footer'; // Ensure this path is correct based on your project structure
 
 function SupportPage() {
   return (
@@ -110,6 +110,7 @@ function SupportPage() {
         </Box>
         <Button variant="contained" sx={{ bgcolor: '#A6192E', mt: 2 }}>Send Message</Button>
       </Box>
+      <Footer /> {/* Added Footer here */}
     </Box>
   );
 }
