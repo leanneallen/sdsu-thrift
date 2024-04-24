@@ -4,6 +4,8 @@ import Header from '../components/Header'
 import AdvancedCarousel from '../components/Carousel'
 import { Grid } from '@mui/material'
 import { Box, Typography } from '@mui/material'
+import Footer from './Footer';
+
 
 function HomePage() {
 

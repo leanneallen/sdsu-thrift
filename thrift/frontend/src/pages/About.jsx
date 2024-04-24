@@ -5,6 +5,7 @@ import thriftStorePic from '../assets/thriftstorepic.jpg';
 import NatureIcon from '@mui/icons-material/Nature';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import GhostIcon from '@mui/icons-material/Visibility'; // Simulating a ghost icon
+import Footer from './Footer'; // Ensure this path is correct based on your project structure
 
 function AboutPage() {
   return (
@@ -77,6 +78,7 @@ function AboutPage() {
           </Card>
         </Card>
       </Box>
+      <Footer /> {/* Added Footer here */}
     </>
   );
 }

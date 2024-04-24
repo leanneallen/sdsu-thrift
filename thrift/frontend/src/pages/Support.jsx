@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Typography, Box, TextField, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../components/Header';
+import Footer from './Footer';
 
 function SupportPage() {
   return (
