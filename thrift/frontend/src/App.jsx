@@ -13,18 +13,9 @@ import ProfilePage from './pages/Profile.jsx';
 import SettingsPage from './pages/Settings.jsx';
 import ApparelPage from './pages/categories/Apparel.jsx';
 
-// Corrected: Removed the extra export default statement at the end of the file
 export default function App() {
   return (
     <>
-      <header>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </header>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Home" element={<HomePage />} />
