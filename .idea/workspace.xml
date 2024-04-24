@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab211f58-74df-4dd4-991e-9cf0d4f3924e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/thrift/backend/authentification/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/authentification/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/authentification/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/authentification/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/listings/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0002_remove_listings_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0003_listings_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0004_category_remove_listings_location_alter_listings_id_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0005_alter_listings_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0006_alter_listings_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/backend/listings/migrations/0007_alter_listings_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thrift/backend/listings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/listings/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thrift/backend/listings/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/listings/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thrift/backend/listings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/backend/listings/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift/frontend/src/pages/categories/Apparel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/thrift/frontend/src/pages/categories/Apparel.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,22 +18,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2fVpefuBCSOUkhEFn9k1sVmVbMA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/LinkFeBe__Listings",
-    "last_opened_file_path": "C:/Users/Jamal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/LinkFeBe__Listings&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jamal&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 </project>

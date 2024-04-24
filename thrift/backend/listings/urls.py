@@ -10,8 +10,8 @@ router.register(r'listings', ListingsViewSet, basename='listings')
 router.register(r'category', CategoryViewSet, basename='category')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-]
+
+     #path('', include(router.urls)),
+     path('listings/<str:category>/', views.getListings, name="listings"),
+     ]
+
