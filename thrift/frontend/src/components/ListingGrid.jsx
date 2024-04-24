@@ -1,48 +1,61 @@
 import * as React from 'react';
 import Listing from './ListingCard';
 import Grid from '@mui/material/Grid';
+import axios from 'axios';
 
-const listingArr = [
+let initListingArr = [
     {
       "title": "Weird Chair",
       "price": "$32424",
-      "img": "./src/assets/BikeChair.png"
+      "image": "./src/assets/BikeChair.png"
     },
     {
       "title": "Wood Cabinet",
       "price": "$5",
-      "img": "./src/assets/Cabinet.png"    
+      "image": "./src/assets/Cabinet.png"    
     },
     {
       "title": "Chicken Lamp",
       "price": "$20",
-      "img": "./src/assets/ChickenLamp.png"    
+      "image": "./src/assets/ChickenLamp.png"    
     },
     {
       "title": "Spooky Chair",
       "price": "Free",
-      "img": "./src/assets/SpookyChair.png"    
+      "image": "./src/assets/SpookyChair.png"    
     },
     {
       "title": "Tall Chairs",
       "price": "$50",
-      "img": "./src/assets/TallChairs.png"    
+      "image": "./src/assets/TallChairs.png"    
     },   
     {
       "title": "Grass Chair",
       "price": "200",
-      "img": "./src/assets/GrassChair.png"    
-    },    
+      "image": "./src/assets/GrassChair.png"},
   ]
 
 export default function ListingList(){  
+  const [listings, setListings] = React.useState(initListingArr);
+  React.useEffect(() => {
+    axios.get('http://127.0.0.1:8000/listings/api/')
+    .then((response) => {
+      console.log(listings)
+      setListings([...response.data])
+      //console.log(listings)
+    })
+    .catch((error) => {
+      console.error('Error fetching data: ', error);
+    });
+  }, []); 
+  
 return(
     <>
     <Grid container spacing = {{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 9, md: 12, lg:15 }}>
-      {listingArr.map((listing, index) => 
-      (<>
+      {listings.map((listing, index) => 
+      (<>      
         <Grid item xs={4} sm={3} md={3} lg={3} key={index}>
-            <Listing key={index} style ={{marginBottom: '64px', width: "200px", height: "345px"}} img = {listing.img} desc = {listing.price} title = {listing.title} />        
+            <Listing key={index} style ={{marginBottom: '64px', width: "200px", height: "345px"}} image = {listing.image} price = {listing.price} title = {listing.title} />        
         </Grid>
        </>
       ))}
