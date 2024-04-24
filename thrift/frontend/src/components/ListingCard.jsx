@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'
 import { CardActionArea } from '@mui/material';
 import { Link as RouterLink } from "react-router-dom";
 
-export default function Listing({title, img, desc}) {
+export default function Listing({title, image, price}) {
   return (
     <Card position = "flex" sx={{ maxWidth: 300 }}style ={{ marginTop: '64px'}}>
       <RouterLink to="/IndivListingPage" style={{ textDecoration: 'none', color: 'inherit', width: '100%', height: '100%' }}>
@@ -17,7 +17,7 @@ export default function Listing({title, img, desc}) {
           component="img"
           width="345"
           height="200"
-          image={img}
+          image={image}
           alt="Listing"
         />
         <CardContent >
@@ -26,7 +26,7 @@ export default function Listing({title, img, desc}) {
           </Typography>
           <Box sx={{display:"flex", justifyContent:"space-between"}}>
           <Typography variant="body1" color="text.secondary" align="left">
-            {"Price: " + desc}
+            {"Price: " + price}
           </Typography>
           <Button>
             Unlist

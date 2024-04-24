@@ -1,12 +1,10 @@
-from django.urls import path, include
-from django.contrib import admin
-from rest_framework import routers
+from django.urls import path
 from . import views
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from .views import getListings
 
 urlpatterns = [
      #path('', include(router.urls)),
-     path('listings/<str:category>/', views.getListings, name="listings"),
+     path('get/<str:category>/', views.getListings, name="listings"),
+     path('my/<str:pk>', views.getMyListings, name="mylistings"),
      ]
 
