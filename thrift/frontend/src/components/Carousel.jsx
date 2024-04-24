@@ -2,6 +2,12 @@ import React from 'react';
 import { useSnapCarousel } from 'react-snap-carousel';
 import Typography from '@mui/material/Typography';
 import Listing from './RecentListings';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
+
 
 const listingArr = [
   {
@@ -34,31 +40,53 @@ const listingArr = [
     "price": "$200",
     "img": "./src/assets/guitar.jpg"
   }
-]
+];
 
 const AdvancedCarousel = () => {
   const { scrollRef, pages, activePageIndex, next, prev } = useSnapCarousel();
-
+  
+  // sx={{ px: 2, my: 2 }}
+  // sx={{ ml: 2, mt: 4 }}
   return (
-    <>
-      <Typography variant="h5"
-        style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', marginLeft: '20px', marginTop: '50px', marginBottom:'0px'}}>
-        Recent Listings
-      </Typography>
-      <ul ref={scrollRef} style={{ display: 'flex', overflow: 'hidden', scrollSnapType: 'x mandatory'}}>
-        {listingArr.map((item, i) => (
-          <li key={i} style={{ margin: '10px', flex: '1 0 80%', height: '300px', maxWidth: '250px' }}>
-            <Listing title={item.title} price={item.price} img={item.img} />
-          </li>
-        ))}
-        </ul>
-      <div>
-        {activePageIndex + 1} / {pages.length}
-      </div>
-      <button onClick={() => prev()}>Prev</button>
-      <button onClick={() => next()}>Next</button>
-      <div style={{marginTop: '50px'}}></div>
-    </>
+    <Box className='carousel-top' sx={{m: 0, padding: '0px'}}>  
+      <Box className='carousel-buttons' sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', m: 0, p: 0}}>
+      
+      <ArrowCircleLeftRoundedIcon onClick={prev} sx={{ fontSize: '35px', position: 'absolute', left: 16, zIndex: 2, cursor: 'pointer' }} />
+        
+        <Box className='carousel-boxes'
+          ref={scrollRef}
+          sx={{
+            display: 'flex',
+            overflow: 'hidden',
+            scrollSnapType: 'x mandatory'
+          }}
+          
+        >
+          {listingArr.map((item, index) => (
+            <Box key={index}
+                sx={{
+                scrollSnapAlign: 'start',
+                minWidth: '250px',
+                maxWidth: '250px',
+                height: '250px',
+                my: 0,
+                p: 0,
+                mx: 1,
+                flexShrink: 0,
+                position: 'relative',
+              }}
+
+            >
+              <Listing title={item.title} price={item.price} img={item.img} />
+              
+
+            </Box>
+          ))}
+        </Box>
+          <ArrowCircleRightRoundedIcon onClick={next} sx={{ fontSize: '35px', position: 'absolute', right: 16, zIndex: 2, cursor: 'pointer' }}/>
+        </Box>
+        <Typography sx={{display: 'flex', flexDirection: "column", justifyContent: "center"}}>{activePageIndex + 1} / {pages.length}</Typography>
+    </Box>
   );
 };
 

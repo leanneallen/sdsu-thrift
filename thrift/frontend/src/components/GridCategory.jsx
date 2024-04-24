@@ -8,16 +8,14 @@ const categories = ['Browse All', 'Apparel', 'Home Furniture', 'Textbooks & Book
 
 export default function CategoryGrid() {
   return (
-    <Container maxWidth="lg">
-    <Box sx={{ flexGrow: 1 }}>
-    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Box className='category-box' sx={{ flexGrow: 1, padding: '0px', m:'0px' }}>
+    <Grid className='category-grid' sx={{padding: '0px', m:'0px'}} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {categories.map((category, index) => (
-        <Grid item xs={2} sm={4} md={3} key={index}>
+        <Grid classname='category-cards' sx={{padding: '0px', m:'0px'}} item xs={2} sm={4} md={3} key={index}>
           <CategoryCard key = {index} style={{height:'500px'}} categoryName={category}/>
         </Grid>
       ))}
     </Grid>
   </Box>
-  </Container>
   );
 }

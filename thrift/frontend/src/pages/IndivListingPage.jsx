@@ -4,13 +4,8 @@ import ResponsiveCarousel from '../components/ResponsiveCarousel.jsx';
 import IndivListing from "../components/IndivListing.jsx";
 import { AppBar, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 function IndivListingPage() {
-  const theme = useTheme();
-  const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
-  
   const listingData = {
     title: 'Frog',
     category: 'Pet Supplies',
@@ -23,9 +18,14 @@ function IndivListingPage() {
 
   return (
     <>
-        <Header />
-        <Box sx={{ marginTop: isSmUp ? '64px' : '56px' }}> 
-        <Grid container spacing={2} >
+        
+      <Grid container spacing={2} columns={12}>
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
+
+        <Grid item xs={12}>
+        <Grid container spacing={2} sx={{ marginTop: 0}}>
         <Grid item xs={12} sm={12} md={6}>
           <Paper sx={{  height: '100%', display: 'flex', flexDirection: 'column', justifyContent: { xs: 'flex-start', md: 'center' } }}>
             <ResponsiveCarousel />
@@ -45,27 +45,14 @@ function IndivListingPage() {
           </Paper>
         </Grid>
       </Grid>  
-      </Box>
+      </Grid>
+      </Grid>
     </>
   );
 }
 
 export default IndivListingPage;
 
-
-      {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 60px)' }}>
-        <ResponsiveCarousel ref={carouselRef} />
-        <IndivListing
-          title={listingData.title}
-          category={listingData.category}
-          owner={listingData.owner}
-          description={listingData.description}
-          price={listingData.price}
-          createdAt={listingData.createdAt}
-          updatedAt={listingData.updatedAt}
-          cardSize={cardSize}
-        />
-      </div> */}
       
 
 
