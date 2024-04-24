@@ -11,7 +11,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const PUBLISHABLE_KEY = "pk_test_ZXhwZXJ0LWdvb3NlLTI4LmNsZXJrLmFjY291bnRzLmRldiQ"; // Use your actual publishable key here
 
 console.log("Publishable Key: ", PUBLISHABLE_KEY);
-
+if(!PUBLISHABLE_KEY){
+  throw new Error("Missing publishable keys")
+}
 function Main() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = React.useMemo(() => createTheme({
@@ -22,10 +24,10 @@ function Main() {
 
   return (
     <React.StrictMode>
-      <ClerkProvider frontendApi={PUBLISHABLE_KEY}>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <MUIThemeProvider theme={theme}>
           <CssBaseline />
-          <BrowserRouter>
+          <BrowserRouter>s
             <App />
           </BrowserRouter>
         </MUIThemeProvider>

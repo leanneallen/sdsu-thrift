@@ -6,7 +6,7 @@ import { loadEnv } from 'vite';
 export default ({ mode }) => {
   // Load environment variables based on the current mode
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-
+  
   return defineConfig({
     plugins: [
       react({
