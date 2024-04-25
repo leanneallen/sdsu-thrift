@@ -12,7 +12,8 @@ from rest_framework.renderers import JSONRenderer
 def getListings(request, category):
     listings = Listings.objects.all()
     if(category):
-        listings = listings.filter(category=category)
+        if(category != 'all'):
+            listings = listings.filter(category=category)
     serializer = ListingsSerializer(listings, many=True)
     return Response(serializer.data)
 

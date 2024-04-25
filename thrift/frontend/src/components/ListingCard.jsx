@@ -9,6 +9,10 @@ import { CardActionArea } from '@mui/material';
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Listing({title, image, price}) {
+  if(!image.includes('assets')){
+    console.log('bad image' + image)
+    image = './src/assets/Placeholder.png'
+  }
   return (
     <Card position = "flex" sx={{ maxWidth: 300 }}style ={{ marginTop: '64px'}}>
       <RouterLink to="/IndivListingPage" style={{ textDecoration: 'none', color: 'inherit', width: '100%', height: '100%' }}>
