@@ -2,7 +2,7 @@ import * as React from 'react';
 import Listing from './UserListingCard'
 import Grid from '@mui/material/Grid';
 import { Link as RouterLink } from "react-router-dom";
-
+import axios from 'axios';
 const listingArr = [
     {
       "title": "Weird Chair",
@@ -37,11 +37,21 @@ const listingArr = [
   ]
 
 export default function ListingsInCategory(){  
+  const [listings, setListings] = React.useState(listingArr);
+  React.useEffect(() => {
+    axios.get('http://localhost:3001/listings/get/Apparel')
+    .then((response) => {
+      setListings([...listingArr,...response.data])
+    })
+    .catch((error) => {
+      console.error('Error fetching data: ', error);
+    });
+  }, []);
 return(
     <>
 
     <Grid container spacing = {{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 9, md: 12, lg:15 }}>
-      {listingArr.map((listing, index) => 
+      {listings.map((listing, index) => 
       (<>
         <Grid item xs={4} sm={3} md={3} lg={3} key={index}>
         <RouterLink to="/IndivListingPage" style={{ textDecoration: 'none', color: 'inherit', width: '100%', height: '100%' }}>
