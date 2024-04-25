@@ -12,7 +12,25 @@ import Grid from '@mui/material/Grid';
 import { TextField, FormControl, InputLabel, Select, MenuItem, InputAdornment, ListSubheader } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AddIcon from '@mui/icons-material/Add';
-import VisuallyHiddenInput from '@mui/material/InputBase';
+// import VisuallyHiddenInput from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
+
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
+// const Input = styled('input')({
+//   display: 'none',
+// });
 
 const drawerWidth = 400;
 
@@ -68,7 +86,7 @@ export default function NewListing() {
             <Typography variant="h6" noWrap component="div">
               Your Listings
             </Typography>
-            <Button color="primary"
+            <Button color="inherit"
                     onClick={handleDrawer}
                     sx={{ ...(open && { display: 'none' }) }}
                     startIcon={<AddIcon />}>
@@ -107,7 +125,7 @@ export default function NewListing() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControl fullWidth sx={{ m: 1 }}>
+                <FormControl>
                   <InputLabel id="category-select-label">Category</InputLabel>
                   <Select
                     labelId="category-select-label"
@@ -135,27 +153,7 @@ export default function NewListing() {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  component="label"
-                  sx={{ width: 200, display: 'flex', margin: 'auto', justifyContent: 'space-between', padding: '10px' }}
-                >
-                  Upload Image
-                  <VisuallyHiddenInput
-                    accept="image/*"
-                    type="file"
-                    onChange={e => setImgListing(e.target.files[0])}
-                  />
-                  <AddIcon />
-                </Button>
-                {imgUrl && imgListing && (
-                  <Box>
-                    <img src={imgUrl} alt={imgListing.name} style={{ width: 200, display: 'flex', margin: 'auto' }}/>
-                  </Box>
-                )}
-              </Grid>
+              
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -178,6 +176,28 @@ export default function NewListing() {
                   sx={{width:200, display:'flex', margin:"auto"}}
                 />
               </Grid>
+              <Grid item xs={12}>
+
+                <Button
+                  color="primary"
+                  component="label"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  sx={{ width: 200, display: 'flex', margin: 'auto', justifyContent: 'space-between', padding: '10px' }}
+                  // startIcon={<CloudUploadIcon />}
+                >
+                  Upload Image
+                  <AddIcon />
+                  <VisuallyHiddenInput type="file" />
+                </Button>
+                {imgUrl && imgListing && (
+                  <Box>
+                    <img src={imgUrl} alt={imgListing.name} style={{ width: 200, display: 'flex', margin: 'auto' }}/>
+                  </Box>
+                )}
+              </Grid>
+              
               <Grid item xs={12}>
                 <Button
                   color="primary"
