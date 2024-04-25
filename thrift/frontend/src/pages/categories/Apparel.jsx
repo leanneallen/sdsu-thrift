@@ -8,10 +8,11 @@ import axios from 'axios';
 
 function ApparelPage() {
   var listingArr = []
-  useEffect(() => {
-    axios.get('http://localhost:3001/listings')
+  const [listings, setListings] = React.useState(listingArr);
+  React.useEffect(() => {
+    axios.get('http://localhost:3001/listings/get/Apparel')
     .then((response) => {
-      
+      setListings([...response.data])
     })
     .catch((error) => {
       console.error('Error fetching data: ', error);
