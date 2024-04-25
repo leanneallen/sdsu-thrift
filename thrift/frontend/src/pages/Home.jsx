@@ -1,16 +1,14 @@
-import * as React from 'react'
-import CategoryGrid from '../components/GridCategory'
-import Header from '../components/Header'
-import AdvancedCarousel from '../components/Carousel'
-import { Grid } from '@mui/material'
-import { Box, Typography } from '@mui/material'
+import * as React from 'react';
+import CategoryGrid from '../components/GridCategory';
+import Header from '../components/Header';
+import AdvancedCarousel from '../components/Carousel';
+import { Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import Footer from './Footer'; // Make sure this path is correct
 
 function HomePage() {
-
   return (
-    <>
-
-    <Grid container spacing={0} columns={12} >
+    <Grid container spacing={0} columns={12}>
       
       <Grid item xs={12}>
         <Header/>
@@ -46,14 +44,13 @@ function HomePage() {
       <Grid item xs={12}>
         <CategoryGrid /> 
       </Grid>
+
+      <Grid item xs={12}>
+        <Footer /> {/* Footer added here */}
+      </Grid>
       
     </Grid>
-    </>
-  )
+  );
 }
 
-export default HomePage
-
-{/* <Header/>
-<AdvancedCarousel/> 
-<CategoryGrid /> */}
+export default HomePage;
