@@ -135,7 +135,9 @@ function Header() {
             <Box sx={{ flexGrow: 0 }}>
               <SignedOut>
                 <Tooltip title="Sign In">
-                  <SignInButton />
+                  <SignInButton>
+                    <Button color="inherit">Sign In</Button>
+                  </SignInButton>
                 </Tooltip>
               </SignedOut>
               <SignedIn>
