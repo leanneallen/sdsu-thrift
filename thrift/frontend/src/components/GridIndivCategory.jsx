@@ -39,7 +39,7 @@ const listingArr = [
 export default function ListingsInCategory(){  
   const [listings, setListings] = React.useState(listingArr);
   React.useEffect(() => {
-    axios.get('http://localhost:3001/listings/get/Apparel')
+    axios.get('http://127.0.0.1:8000/listings/get/HomeFurniture/')
     .then((response) => {
       setListings([...listingArr,...response.data])
     })

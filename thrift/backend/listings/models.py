@@ -16,7 +16,7 @@ class Listings(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4) #help_text= "Unique ID for this particular listing"
     title = models.CharField(max_length=32)
     image = models.ImageField(upload_to='media/')
-    category = models.CharField(max_length=20, null=True, choices = (("Apparel", "Apparel"), ("HomeFurniture", "Home Furniture"), ("Free Stuff", "Free Stuff"),
+    category = models.CharField(max_length=20, null=True, choices = (("apparel", "Apparel"), ("HomeFurniture", "Home Furniture"), ("Free Stuff", "Free Stuff"),
   ("Vehicles", "Vehicles"), ("Toys&Games", "Toys & Games"), ("Plants&Outdoor", "Plants & Outdoor"),
   ("SportingGoods", "Sporting Goods"), ("PropertyRentals", "Property Rentals"), ("PetSupplies", "Pet Supplies"),
   ("Hobbies", "Hobbies"), ("MusicInstruments", "Music Instruments"), ("Textbooks&Books", "Textbooks & Books"),

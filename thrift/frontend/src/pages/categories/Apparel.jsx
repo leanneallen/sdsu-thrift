@@ -7,17 +7,7 @@ import MultipleSelectPlaceholder from '../../components/FiltersCategory';
 import axios from 'axios';
 
 function ApparelPage() {
-  var listingArr = []
-  const [listings, setListings] = React.useState(listingArr);
-  React.useEffect(() => {
-    axios.get('http://localhost:3001/listings/get/Apparel')
-    .then((response) => {
-      setListings([...response.data])
-    })
-    .catch((error) => {
-      console.error('Error fetching data: ', error);
-    });
-  }, []);
+
   return (
     <div>
         <Header />
@@ -32,7 +22,7 @@ function ApparelPage() {
           <h1>Apparel</h1>
           <MultipleSelectPlaceholder />
         </div>
-        <ListingsInCategory />
+        <ListingsInCategory  />
     </div>
   );
 }
