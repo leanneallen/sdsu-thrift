@@ -24,11 +24,8 @@ def getMyListings(request, pk):
     return Response(serializer.data)
 
 @api_view(['POST'])
-def createListing(request):
-    serializer = ListingsSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
+def createListing(request, data):
+    return Listings.objects.create(**data)
 
 @api_view(['UPDATE'])
 def updateListing(request, pk):
