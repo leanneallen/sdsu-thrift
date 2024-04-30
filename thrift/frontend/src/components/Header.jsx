@@ -13,11 +13,15 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link as RouterLink } from "react-router-dom";
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/clerk-react';
+import Brightness4Icon from '@mui/icons-material/Brightness4';  // Importing the dark mode icon
+import { useTheme } from './ThemeContext'; // Import useTheme hook
+
 
 const pages = ['Home', 'Listings', 'About', 'Support'];
 const settings = ['Profile', 'Settings', 'Signup', 'Login', 'Logout'];
 
 function Header() {
+  const { toggleTheme } = useTheme(); // Get toggleTheme from context
   const user = useUser();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -133,6 +137,12 @@ function Header() {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Toggle theme">
+                <IconButton onClick={toggleTheme} color="inherit">
+                  <Brightness4Icon />
+                </IconButton>
+              </Tooltip>
+
               <SignedOut>
                 <Tooltip title="Sign In">
                   <SignInButton>
