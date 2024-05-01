@@ -3,6 +3,7 @@ import { Typography, Box, TextField, Button, Accordion, AccordionSummary, Accord
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../components/Header';
 import Footer from './Footer'; // Ensure this path is correct based on your project structure
+import { lighten } from '@mui/material/styles';
 
 function SupportPage() {
   return (
@@ -13,22 +14,15 @@ function SupportPage() {
       textAlign="center"
     >
       <Header />
-      <Typography variant="h4" sx={{ color: '#fff', mb: 2, mt: 1 }}>
+      <Typography variant="h4" sx={{ my: 4}}>
         Support
       </Typography>
       <TextField
         label="Search help articles"
         variant="outlined"
         fullWidth
-        InputLabelProps={{
-          style: { color: '#000' } // Label text color
-        }}
-        inputProps={{
-          style: { color: '#000' } // Input text color
-        }}
         sx={{
           borderRadius: '5px',
-          backgroundColor: '#fff', // Set the background color to white
           mb: 2 // Adds margin bottom for spacing
         }}
       />
@@ -92,7 +86,12 @@ function SupportPage() {
           sx={{ mt: 1 }}
         />
       </Box>
-      <Button variant="contained" sx={{ bgcolor: '#A6192E', mt: 2 }}>Send Message</Button>
+      <Button variant="contained" sx={{ backgroundColor: '#A6192E', color: 'white', mt: 2,
+                                    '&:hover': {
+                                      backgroundColor: lighten('#A6192E', 0.2),
+                    }}}>
+          Send Message
+      </Button>
       <Footer /> {/* Added Footer here */}
     </Box>
   );
