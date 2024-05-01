@@ -5,12 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { ThemeProvider } from './components/ThemeContext.jsx';
-const PUBLISHABLE_KEY = "pk_test_ZXhwZXJ0LWdvb3NlLTI4LmNsZXJrLmFjY291bnRzLmRldiQ"; // Use your actual publishable key here
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
-console.log("Publishable Key: ", PUBLISHABLE_KEY);
-if(!PUBLISHABLE_KEY){
-  throw new Error("Missing publishable keys")
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
 }
+
 function Main() {
 
   return (
