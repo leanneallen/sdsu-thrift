@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -12,9 +10,8 @@ import Grid from '@mui/material/Grid';
 import { TextField, FormControl, InputLabel, Select, MenuItem, InputAdornment, ListSubheader } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AddIcon from '@mui/icons-material/Add';
-// import VisuallyHiddenInput from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
-
+import { lighten } from '@mui/material/styles';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -28,38 +25,10 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-// const Input = styled('input')({
-//   display: 'none',
-// });
-
 const drawerWidth = 400;
 
-const getDesignTokens = (mode) => ({
-  palette: {
-    mode,
-    primary: {
-      main: '#A6192E',
-    },
-    ...(mode === 'dark' && {
-      background: {
-        default: '#121212',
-        paper: '#121212',
-      },
-      text: {
-        primary: '#fff',
-        secondary: '#e0e0e0',
-      },
-    }),
-  },
-});
 
 export default function NewListing() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const theme = React.useMemo(
-    () =>
-      createTheme(getDesignTokens(prefersDarkMode ? 'dark' : 'light')),
-    [prefersDarkMode],
-  );
 
   const [open, setOpen] = useState(false);
   const [imgListing, setImgListing] = useState(null);
@@ -78,31 +47,28 @@ export default function NewListing() {
   }, [imgListing]);
 
   return (
-    <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }} height={70}>
-        <CssBaseline />
-        <AppBar position="static" color="primary">
+
+        <AppBar position="static" color='inherit'>
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography variant="h6" noWrap component="div">
+            <Typography variant="h6">
               Your Listings
             </Typography>
-            <Button color="inherit"
-                    onClick={handleDrawer}
-                    sx={{ ...(open && { display: 'none' }) }}
-                    startIcon={<AddIcon />}>
+            <Button onClick={handleDrawer}
+                    sx={{ ...(open && { display: 'none' }), color:'white'}}>
               New Listing
+              <AddIcon />
             </Button>
           </Toolbar>
         </AppBar>
-        <Box sx={{ marginTop: '64px' }}>
+
           <Drawer
             sx={{
               width: drawerWidth,
               flexShrink: 0,
               '& .MuiDrawer-paper': {
                 width: drawerWidth,
-                backgroundColor: theme.palette.background.paper,
-                color: theme.palette.text.primary,
+                flexDirection: 'column',
               },
             }}
             variant="persistent"
@@ -178,19 +144,28 @@ export default function NewListing() {
               </Grid>
               <Grid item xs={12}>
 
-                <Button
-                  color="primary"
-                  component="label"
-                  role={undefined}
-                  variant="contained"
-                  tabIndex={-1}
-                  sx={{ width: 200, display: 'flex', margin: 'auto', justifyContent: 'space-between', padding: '10px' }}
-                  // startIcon={<CloudUploadIcon />}
-                >
-                  Upload Image
-                  <AddIcon />
-                  <VisuallyHiddenInput type="file" />
-                </Button>
+              <Button
+                component="label"
+                variant="contained"
+                sx={{
+                  width: 200,
+                  display: 'flex',
+                  margin: 'auto',
+                  color: 'white',
+                  backgroundColor: '#A6192E', // Your chosen color
+                  justifyContent: 'space-between',
+                  padding: '10px',
+                  mb: 2,
+                  '&:hover': {
+                    backgroundColor: lighten('#A6192E', 0.2), // Same color on hover
+                      }
+                    }}
+                  >
+                Upload Image
+                <AddIcon />
+                <VisuallyHiddenInput type="file" />
+              </Button>
+
                 {imgUrl && imgListing && (
                   <Box>
                     <img src={imgUrl} alt={imgListing.name} style={{ width: 200, display: 'flex', margin: 'auto' }}/>
@@ -200,18 +175,19 @@ export default function NewListing() {
               
               <Grid item xs={12}>
                 <Button
-                  color="primary"
+
                   variant="contained"
                   size="small"
-                  sx={{width:200, display:'flex', margin:"auto"}}
+                  sx={{ color: 'white', backgroundColor:'#A6192E', width:200, display:'flex', margin:"auto",
+                    '&:hover': {
+                      backgroundColor: lighten('#A6192E', 0.2),
+                    }}}
                 >
                   Submit
                 </Button>
               </Grid>
             </Grid>
           </Drawer>
-        </Box>
       </Box>
-    </ThemeProvider>
   );
 }
