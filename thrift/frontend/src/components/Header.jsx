@@ -45,7 +45,7 @@ function Header() {
   return (
     <>
       <AppBar position="fixed" style={{ top: 0, left: 0, right: 0 }} sx={{ backgroundColor: '#A6192E' }}>
-        <Container maxWidth={false}>
+        {/* <Container maxWidth={false}> */}
           <Toolbar>
             <Typography
               variant="h6"
@@ -55,14 +55,13 @@ function Header() {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
             >
-              SDSUThrift
+              SDSU Thrift
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -159,7 +158,7 @@ function Header() {
               </SignedIn>
             </Box>
           </Toolbar>
-        </Container>
+        {/* </Container> */}
       </AppBar>
     </>
   );
