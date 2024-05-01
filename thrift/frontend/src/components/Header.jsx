@@ -9,13 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link as RouterLink } from "react-router-dom";
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';  // Importing the dark mode icon
 import { useTheme } from './ThemeContext'; // Import useTheme hook
-
+import LogoHeader from '../assets/LogoHeader.png';
 
 const pages = ['Home', 'Listings', 'About', 'Support'];
 const settings = ['Profile', 'Settings', 'Signup', 'Login', 'Logout'];
@@ -45,24 +46,30 @@ function Header() {
   return (
     <>
       <AppBar position="fixed" style={{ top: 0, left: 0, right: 0 }} sx={{ backgroundColor: '#A6192E' }}>
-        {/* <Container maxWidth={false}> */}
           <Toolbar>
-            <Typography
-              variant="h6"
-              noWrap
-              component={RouterLink} to="/"
-              href="#Header"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              SDSU Thrift
-            </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center'}}>
+
+              <Box sx={{ display: { xs: 'none', md: 'flex'}}}>
+                <img src={LogoHeader} alt='SDSU Thrift Logo' style={{ width: 65, height: 50, marginRight: 20}}/> 
+              </Box>
+                
+              <Typography
+                variant="h6"
+                noWrap
+                component={RouterLink} to="/"
+                href="#Header"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                SDSU Thrift
+              </Typography>
+            </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -106,20 +113,19 @@ function Header() {
             <Typography
               variant="h5"
               noWrap
-              component="a"
+              component={RouterLink} to="/"
               href="#Header"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
             >
-              SDSUThrift
+              SDSU Thrift
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -158,7 +164,6 @@ function Header() {
               </SignedIn>
             </Box>
           </Toolbar>
-        {/* </Container> */}
       </AppBar>
     </>
   );
