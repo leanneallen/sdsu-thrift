@@ -1,19 +1,16 @@
 import React from 'react';
-import { Box, TextField, Button, IconButton, Typography, useTheme } from '@mui/material';
+import { Box, TextField, Button, IconButton, Typography } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { lighten } from '@mui/material/styles';
 
 const Footer = () => {
-    const theme = useTheme(); // Use theme for styling
-
     return (
         <Box sx={{
             width: '100%',
             padding: 3,
             textAlign: 'center',
-            backgroundColor: theme.palette.background.paper, // Adaptive background color
-            color: theme.palette.text.primary, // Adaptive text color
         }}>
             <Typography variant="h6" gutterBottom sx={{ color: 'text.primary' }}>
                 Subscribe to Our Newsletter
@@ -25,7 +22,12 @@ const Footer = () => {
                 autoComplete="off"
             >
                 <TextField label="Email Address" variant="outlined" />
-                <Button variant="contained" color="primary">Subscribe</Button>
+                <Button variant="contained" sx={{backgroundColor:'#A6192E', color:'white',
+                                            '&:hover': {
+                                                backgroundColor: lighten('#A6192E', 0.2),
+                                              }}}> 
+                    Subscribe
+                </Button>
             </Box>
             <Box sx={{ padding: 2 }}>
                 <IconButton aria-label="Instagram">
