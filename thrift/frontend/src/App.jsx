@@ -11,7 +11,7 @@ import NoPage from './pages/NoPage.jsx';
 import IndivListingPage from './pages/IndivListingPage.jsx';
 import ProfilePage from './pages/Profile.jsx';
 import SettingsPage from './pages/Settings.jsx';
-import ApparelPage from './pages/categories/Apparel.jsx';
+import CategoryPage from './pages/categories/CategoryLayout.jsx';
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Support" element={<SupportPage />} />
-        <Route path="/Apparel" element={<ApparelPage />} />
+        <Route path="/:categoryName" element={<CategoryPage />} />
         <Route path="/IndivListingPage" element={<IndivListingPage />} />
         <Route path="/Profile" element={<ProfilePage />} />
         <Route path="/Settings" element={<SettingsPage />} />

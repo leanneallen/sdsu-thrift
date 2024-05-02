@@ -1,22 +1,27 @@
 import * as React from 'react'
 import ClippedDrawer from '../../components/FiltersCategory'
 import CategoryGrid from '../../components/GridCategory';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ListingsInCategory from '../../components/GridIndivCategory';
 import Header from '../../components/Header';
 import MultipleSelectPlaceholder from '../../components/FiltersCategory';
 import axios from 'axios';
 
-function ApparelPage() {
+function CategoryPage() {
   var listingArr = []
-  useEffect(() => {
-    axios.get('http://localhost:3001/listings')
-    .then((response) => {
+  const { categoryName } = useParams();
+
+  // useEffect(() => {
+  //   axios.get(`http://localhost:3001/listings/${categoryName}`)
+  //   .then((response) => {
       
-    })
-    .catch((error) => {
-      console.error('Error fetching data: ', error);
-    });
-  }, []);
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error fetching data: ', error);
+  //   });
+  // }, [categoryName]);
+
   return (
     <div>
         <Header />
@@ -28,11 +33,11 @@ function ApparelPage() {
           marginRight: '20px',   // Right margin for spacing
           marginLeft: '20px'     // Left margin for spacing
         }}>
-          <h1>Apparel</h1>
+          <h1>{categoryName}</h1>
           <MultipleSelectPlaceholder />
         </div>
         <ListingsInCategory />
     </div>
   );
 }
-export default ApparelPage
+export default CategoryPage;
