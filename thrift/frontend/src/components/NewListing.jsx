@@ -63,6 +63,7 @@ export default function NewListing() {
       description,
       price,
       image:imgUrl,
+      seller:"Admin"
     };    
     // const formData = new FormData();
     // formData.append('title', title);
@@ -153,10 +154,10 @@ export default function NewListing() {
                       },
                     }}
                   >
-                    <MenuItem value="electronics">Electronics</MenuItem>
-                    <MenuItem value="furniture">Furniture</MenuItem>
-                    <MenuItem value="clothing">Clothing</MenuItem>
-                    <MenuItem value="books">Books</MenuItem>
+                    <MenuItem value="Electronics">Electronics</MenuItem>
+                    <MenuItem value="HomeFurniture">Furniture</MenuItem>
+                    <MenuItem value="Entertainment">Entertainment</MenuItem>
+                    <MenuItem value="Apparel">Clothing</MenuItem>
                     <MenuItem value="sports">Sports</MenuItem>
                     <ListSubheader>More Categories</ListSubheader>
                     <MenuItem value="garden">Garden</MenuItem>

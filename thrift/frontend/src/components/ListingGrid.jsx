@@ -38,9 +38,8 @@ let initListingArr = [
 export default function ListingList(){  
   const [listings, setListings] = React.useState(initListingArr);
   React.useEffect(() => {
-    axios.get('http://127.0.0.1:8000/listings/my/poop')
+    axios.get('http://127.0.0.1:8000/listings/get/all/')
     .then((response) => {
-      console.log(listings)
       setListings([...response.data])
       //console.log(listings)
     })
@@ -48,7 +47,6 @@ export default function ListingList(){
       console.error('Error fetching data: ', error);
     });
   }, []); 
-  
 return(
     <>
     <Grid container spacing = {{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 9, md: 12, lg:15 }}>
