@@ -38,7 +38,7 @@ let initListingArr = [
 export default function ListingList(){  
   const [listings, setListings] = React.useState(initListingArr);
   React.useEffect(() => {
-    axios.get('http://127.0.0.1:8000/listings/api/')
+    axios.get('http://127.0.0.1:8000/listings/my/poop')
     .then((response) => {
       console.log(listings)
       setListings([...response.data])
