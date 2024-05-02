@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
@@ -34,6 +35,9 @@ export default function NewListing() {
   const [imgListing, setImgListing] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
   const [category, setCategory] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
@@ -45,6 +49,46 @@ export default function NewListing() {
       setImgUrl(URL.createObjectURL(imgListing));
     }
   }, [imgListing]);
+
+  const handleTitleChange = (event) => setTitle(event.target.value);
+  const handleDescriptionChange = (event) => setDescription(event.target.value);
+  const handlePriceChange = (event) => setPrice(event.target.value);
+  const handleImageChange = (event) => setImgListing(event.target.files[0]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = {
+      title,
+      category,
+      description,
+      price,
+      image:imgUrl,
+      seller:"Admin"
+    };    
+    // const formData = new FormData();
+    // formData.append('title', title);
+    // formData.append('category', category);
+    // formData.append('description', description);
+    // formData.append('price', price);
+    // if (imgListing) {
+    //   formData.append('image', imgListing);
+    // }
+      console.log('Form Data:', formData); // Console log to see the data before sending
+    
+      axios.post('http://127.0.0.1:8000/listings/create/', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        console.log('Form Data pt:', formData);
+        console.log('Response: ', response);
+      })
+      .catch((error) => {
+        console.error('Error fetching data: ', error);
+      });
+  };
+
 
   return (
       <Box sx={{ display: 'flex' }} height={70}>
@@ -80,7 +124,7 @@ export default function NewListing() {
             <IconButton onClick={handleDrawerClose}>
               <ChevronRightIcon />
             </IconButton>
-            <Grid container spacing={1}>
+            <Grid container spacing={1} /*component="form" onSubmit={handleSubmit}*/>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -88,6 +132,8 @@ export default function NewListing() {
                   label="Title"
                   variant="outlined"
                   sx={{width:200, display:'flex', margin:"auto"}}
+                  value={title}
+                  onChange={handleTitleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -108,10 +154,10 @@ export default function NewListing() {
                       },
                     }}
                   >
-                    <MenuItem value="electronics">Electronics</MenuItem>
-                    <MenuItem value="furniture">Furniture</MenuItem>
-                    <MenuItem value="clothing">Clothing</MenuItem>
-                    <MenuItem value="books">Books</MenuItem>
+                    <MenuItem value="Electronics">Electronics</MenuItem>
+                    <MenuItem value="HomeFurniture">Furniture</MenuItem>
+                    <MenuItem value="Entertainment">Entertainment</MenuItem>
+                    <MenuItem value="Apparel">Clothing</MenuItem>
                     <MenuItem value="sports">Sports</MenuItem>
                     <ListSubheader>More Categories</ListSubheader>
                     <MenuItem value="garden">Garden</MenuItem>
@@ -128,18 +174,23 @@ export default function NewListing() {
                   variant="outlined"
                   multiline
                   sx={{width:200, display:'flex', margin:"auto"}}
+                  value={description}
+                  onChange={handleDescriptionChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
                   id="price-input"
+                  type='text'
                   label="Price"
                   variant="outlined"
                   InputProps={{
                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                   }}
                   sx={{width:200, display:'flex', margin:"auto"}}
+                  value={price}
+                  onChange={handlePriceChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -152,18 +203,18 @@ export default function NewListing() {
                   display: 'flex',
                   margin: 'auto',
                   color: 'white',
-                  backgroundColor: '#A6192E', // Your chosen color
+                  backgroundColor: '#A6192E',
                   justifyContent: 'space-between',
                   padding: '10px',
                   mb: 2,
                   '&:hover': {
-                    backgroundColor: lighten('#A6192E', 0.2), // Same color on hover
+                    backgroundColor: lighten('#A6192E', 0.2), 
                       }
                     }}
                   >
                 Upload Image
                 <AddIcon />
-                <VisuallyHiddenInput type="file" />
+                {<VisuallyHiddenInput type="file" onChange={handleImageChange} /* onChange={(e) => setImgListing(e.target.files[0])} */ /> }
               </Button>
 
                 {imgUrl && imgListing && (
@@ -175,7 +226,7 @@ export default function NewListing() {
               
               <Grid item xs={12}>
                 <Button
-
+                  onClick={handleSubmit}
                   variant="contained"
                   size="small"
                   sx={{ color: 'white', backgroundColor:'#A6192E', width:200, display:'flex', margin:"auto",
